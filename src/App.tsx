@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate 
 import { Github, Menu, X, Box, ToggleLeft, Layout, FileInput as Input, FileInput, PenTool, HelpCircle, Heart, MoreVertical } from 'lucide-react';
 import ComponentsPage from './pages/ComponentsPage';
 import ComponentPage from './pages/ComponentPage';
-import DocumentationPage from './pages/DocumentationPage';
+import GettingStartedPage from './pages/GettingStartedPage';
+import ShowcasePage from './pages/ShowcasePage';
+import ChangelogPage from './pages/ChangelogPage';
 import Hero from './components/HomePage/Hero';
 import Features from './components/HomePage/Features';
 import Stats from './components/HomePage/Stats';
@@ -46,8 +48,9 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen, isCompanionOpen, se
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-6">
               <Link to="/components" className={`text-gray-300 hover:text-white transition ${location.pathname.includes('/components') ? 'text-white' : ''}`}>Components</Link>
-              <Link to="/documentation" className={`text-gray-300 hover:text-white transition ${location.pathname === '/documentation' ? 'text-white' : ''}`}>Documentation</Link>
-              <Link to="/examples" className={`text-gray-300 hover:text-white transition ${location.pathname === '/examples' ? 'text-white' : ''}`}>Examples</Link>
+              <Link to="/getting-started" className={`text-gray-300 hover:text-white transition ${location.pathname === '/getting-started' ? 'text-white' : ''}`}>Getting Started</Link>
+              <Link to="/showcase" className={`text-gray-300 hover:text-white transition ${location.pathname === '/showcase' ? 'text-white' : ''}`}>Showcase</Link>
+              <Link to="/changelog" className={`text-gray-300 hover:text-white transition ${location.pathname === '/changelog' ? 'text-white' : ''}`}>Changelog</Link>
             </div>
             <div className="flex items-center space-x-4">
               <button
@@ -85,11 +88,14 @@ function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen, isCompanionOpen, se
           <Link to="/components" className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/5">
             Components
           </Link>
-          <Link to="/documentation" className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/5">
-            Documentation
+          <Link to="/getting-started" className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/5">
+            Getting Started
           </Link>
-          <Link to="/examples" className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/5">
-            Examples
+          <Link to="/showcase" className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/5">
+            Showcase
+          </Link>
+          <Link to="/changelog" className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/5">
+            Changelog
           </Link>
           <div className="border-t border-white/10 my-2"></div>
           {menuItems.map((item, index) => (
@@ -159,7 +165,9 @@ function App() {
               setIsCompanionOpen={setIsCompanionOpen}
             />
           } />
-          <Route path="/documentation/*" element={<DocumentationPage />} />
+          <Route path="/getting-started" element={<GettingStartedPage />} />
+          <Route path="/showcase" element={<ShowcasePage />} />
+          <Route path="/changelog" element={<ChangelogPage />} />
         </Routes>
 
         <Footer />
